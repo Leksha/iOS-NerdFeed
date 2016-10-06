@@ -13,6 +13,7 @@
 		DAB294A51DA688F500553606 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAB294A31DA688F500553606 /* Main.storyboard */; };
 		DAB294A71DA688F500553606 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAB294A61DA688F500553606 /* Assets.xcassets */; };
 		DAB294AA1DA688F500553606 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAB294A81DA688F500553606 /* LaunchScreen.storyboard */; };
+		DAB294B61DA6899D00553606 /* BNRCoursesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB294B51DA6899D00553606 /* BNRCoursesViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		DAB294A61DA688F500553606 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DAB294A91DA688F500553606 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DAB294AB1DA688F500553606 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DAB294B41DA6899D00553606 /* BNRCoursesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRCoursesViewController.h; sourceTree = "<group>"; };
+		DAB294B51DA6899D00553606 /* BNRCoursesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRCoursesViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +65,8 @@
 				DAB2949E1DA688F500553606 /* AppDelegate.m */,
 				DAB294A01DA688F500553606 /* ViewController.h */,
 				DAB294A11DA688F500553606 /* ViewController.m */,
+				DAB294B41DA6899D00553606 /* BNRCoursesViewController.h */,
+				DAB294B51DA6899D00553606 /* BNRCoursesViewController.m */,
 				DAB294A31DA688F500553606 /* Main.storyboard */,
 				DAB294A61DA688F500553606 /* Assets.xcassets */,
 				DAB294A81DA688F500553606 /* LaunchScreen.storyboard */,
@@ -152,6 +157,7 @@
 			files = (
 				DAB294A21DA688F500553606 /* ViewController.m in Sources */,
 				DAB2949F1DA688F500553606 /* AppDelegate.m in Sources */,
+				DAB294B61DA6899D00553606 /* BNRCoursesViewController.m in Sources */,
 				DAB2949C1DA688F500553606 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,6 +315,7 @@
 				DAB294B01DA688F500553606 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
