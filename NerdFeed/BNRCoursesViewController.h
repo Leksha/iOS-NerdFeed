@@ -11,5 +11,4 @@
 @interface BNRCoursesViewController : UITableViewController
 
 @property (strong, nonatomic) UIWindow *window;
-
 @end

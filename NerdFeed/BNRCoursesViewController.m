@@ -11,6 +11,7 @@
 @interface BNRCoursesViewController ()
 
 @property (nonatomic) NSURLSession *session;
+@property (nonatomic, copy) NSArray *courses;
 
 @end
 
@@ -38,6 +39,8 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self.tableView registerClass:[UITableViewCell class]
+           forCellReuseIdentifier:@"UITableViewCell"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,34 +55,37 @@
     NSURL *url = [NSURL URLWithString:requestString];
     NSURLRequest *req = [NSURLRequest requestWithURL:url];
     NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:req
-                                                     completionHandler: ^(NSData *data, NSURLResponse *response, NSError *error) {
-                                                         NSString *json = [[NSString alloc] initWithData:data
-                                                                           encoding:NSUTF8StringEncoding];
-                                                         NSLog(@"Printing: %@", json);
-                                                         }];
+                                                     completionHandler:
+                                      ^(NSData *data, NSURLResponse *response, NSError *error) {
+                                          NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+                                          self.courses = jsonObject[@"courses"];
+                                          NSLog(@"Printing: %@", self.courses);
+                                          dispatch_async(dispatch_get_main_queue(), ^{
+                                              [self.tableView reloadData];
+                                          });
+                                        }
+                                      ];
     [dataTask resume];
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+//#warning Incomplete implementation, return the number of sections
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 //#warning Incomplete implementation, return the number of rows
-    return 0;
+    return [self.courses count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return nil;
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
+    NSDictionary *course = self.courses[indexPath.row];
+    cell.textLabel.text = course[@"title"];
+    return cell;
 }
-
 
 /*
 // Override to support conditional editing of the table view.
